@@ -1,0 +1,75 @@
+﻿MalGen v 0.9
+STRICT-OPTION.txt
+
+MalGen records represent entires in site-entity logs where some number of the
+entities have been compromised.  The data generated follows certain statistical
+distributions which we believe presents a usable model for such logs.
+
+There are two intended uses for MalGen.  The first is to generate a large,
+possibly distributed, data set for use with analytics.  The second is generate
+data for use with benchmarking algorithms or applications.
+
+With the first use, records are generated probabilistically and extra records
+may be produced so that the entire data set follows the specified distribution.
+With the second use, strict adherence to the distribution is not necessary as
+the user is more interested in generating exactly the specified number of
+records.
+
+Before the v0.9 release,  MalGen always attempted to follow the statistical
+distribution.  This means that the exact number of records specified was usually
+not generated.  The overage, when dealing with 100's of millions of records per
+node, tended to be in the 1/100ths of a percent and was not a significant issue
+when the records were intended solely as data to benchmark algorithms or
+applications against.
+
+Release v0.9 exposes a switch which can be used at the command line to toggle
+between following the distribution and generating exactly the number of records
+specified.  When the distribution is followed, the number of records generated
+is probabilistic, so there is no way to accurately determine how many records
+will be included in each generated file.  When the exact number of records is
+generated, the data may be slightly inappropriate for statistical analysis.
+
+The flag is -t (--truncate).  If it is specified in the call to MalGen, then the
+last batch of records generated in each run will be truncated so that the
+numbers of records in the produced file is exactly the number specified.  The
+default value, when the flag is not used, is to follow the distribution.
+
+
+Examples
+
+1. Generate exactly 500 million records per node on 6 nodess.  We assume that
+   the necessary setup has been done and that the INITIAL.txt file produced by
+   the fist step is in an appropriate place.
+
+   Initial File (run once on the first node)
+
+       $ python malgen.py -O /raid/testdata -t 0 500000000 500000000 5
+
+   Uncompromised File (run once on each of the other five nodes)
+
+       $ python malgen.py -t 500000000
+
+2. Generate at least 500 million records per node on 6 nodes, while following
+   the desired distribution.  We assume that the necessary setup has been done
+   and that the INITAL.txt file produced by the first step is in an appropriate
+   place.
+
+   Initial File (run once on the first node)
+
+       $ python malgen.py -O /raid/testdata 0 500000000 500000000 5
+
+   Uncompromised File (run once on each of the other five nodes)
+
+       $ python malgen.py 500000000
+
+Note:
+  When generating uncompromised files, we usually generate several smaller
+  pieces and then concatenate them together.  This is how the provided scripts
+  work.  For didactic reasons, the above examples generate the file in a single
+  step.  To follow the script, you would run
+
+      $ python malgen.py -O /raid/testdata -t 0 500000000 100000000 25
+
+  five times on each of the other five nodes.  Take care to rename the output
+  file after each run if you are not using the provided script.
+

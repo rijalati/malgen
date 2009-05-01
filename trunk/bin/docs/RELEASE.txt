@@ -1,0 +1,38 @@
+MalGen
+Release Notes
+
+Version 0.9
+Release date 2009-04-29
+
+  Features
+    1. Fixed-width fields.  See the FIXED_WIDTH.txt file in the docs directory
+       of the source package for more information.
+    2. Added the -t, --truncate option which at the expense of strictly
+       following the statistical distribution,  generates exactly the number of
+       specified records. See the STRICT_OPTION.txt file in the docs directory
+       of the source package for more information.
+
+  Bugs
+    1. Fixed incorrect version number when --version is called.
+
+  Other
+    1. Released under the Open Cloud Consortium.
+
+Version 0.8
+Release date 2009-04-20
+
+  Features
+    1. Removed the historical Aux field.  This reduced the number of fields to
+       five from six.
+    2. Records are now a fixed length.  Each recorded generated is 100 bytes
+       unless values are used for the distributions which make this impossible.
+
+  Bugs
+
+  Other
+
+Version 0.7
+Release date 2009-02-20
+
+  Initial Release to Google Code
+
