@@ -13,7 +13,7 @@ The `MalStone A-10` and `B-10` benchmarks each consist of 10 billion records and
 
 = Resources =
 
-A technical introduces the benchmark and describes three illustrative implementations.  The code archive contains the three illustrative implementations.
+A technical reports introduces the benchmark and describes three illustrative implementations.  The code archive contains the three illustrative implementations.
 
  * malstone-TR-09-01.pdf
  * malstone-googlecode-0_8_1.tar.gz
