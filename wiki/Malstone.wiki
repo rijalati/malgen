@@ -18,7 +18,7 @@ A technical reports introduces the benchmark and describes three illustrative im
  * malstone-TR-09-01.pdf
  * malstone-googlecode-0_8_1.tar.gz
 
-These will be available under the Downloads tab and featured on the Project Home page.
+These are available under the Downloads tab and featured on the Project Home page.  *Note* that he current version of the code is 0.8.1.
 
 
 = Details =
