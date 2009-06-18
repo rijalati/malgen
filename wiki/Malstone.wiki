@@ -16,9 +16,9 @@ The `MalStone A-10` and `B-10` benchmarks each consist of 10 billion records and
 A technical reports introduces the benchmark and describes three illustrative implementations.  The code archive contains the three illustrative implementations.
 
  * malstone-TR-09-01.pdf
- * malstone-googlecode-0_8_1.tar.gz
+ * malstone-googlecode-0_8_2.tar.gz
 
-These are available under the Downloads tab and featured on the Project Home page.  *Note* that he current version of the code is 0.8.1.
+These are available under the Downloads tab and featured on the Project Home page.  *Note* that he current version of the code is 0.8.2.  This fixes a bug with the malstone b python reducer.  The correct values were being calculated, but the wrong key was used in creating the record in the output. 
 
 
 = Details =
