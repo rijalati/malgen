@@ -1,5 +1,5 @@
 #labels Featured,Phase-QA,Phase-Implementation
-Malstone is a stylized benchmark for data intensive computing.  It is available [http://malgen.googlecode.com/files/malstone-googlecode-0_8_1.tar.gz here].
+Malstone is a stylized benchmark for data intensive computing.  It is available [http://malgen.googlecode.com/files/malstone-googlecode-0_8_2.tar.gz here].
 
 = Introduction =
 
