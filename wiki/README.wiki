@@ -3,7 +3,7 @@
 
 = Introduction =
 
-This is taken from the README file included in the package under the bin directory.  A more complete version is MalGen_v0.8_Overview.pdf which is also included in the package 
+This is taken from the README file included in the package under the bin directory.  A more complete version is `MalGen` v0.9 Overview.pdf which is also included in the package 
 
 
 = Details =
@@ -23,3 +23,7 @@ associated metadata and then concatenates them into a single file.  The
 original pieces are then deleted.  Originally, this was so that the code could
 run on older hardware with less RAM.  Later versions of the code improved memory
 handling and this is no longer necessary, but it has not been removed.
+
+= Requirements =
+
+`MalGen` is Python code, so it should be able to run on most platforms.  We have only tested it on Linux and it requires Python 2.4.4 or above (there is a bug in the datetime module with version 2.4.3 and older that can cause problems).  We have tested it using Python 2.4.4 and 2.5.2.
