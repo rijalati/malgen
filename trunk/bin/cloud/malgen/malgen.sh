@@ -37,8 +37,15 @@ done;
 
 # Consolidate data into a single file
 # We do not consolidate metadata
+
+# cat'ing is terrible if there is only file, so this has been updated to deal
+# with the single and multiple iteration cases.
 cd ${IMPORT_FILE_DIR}
-cat ${DATA_FILE_BASE}-${HOST}-*.dat > ${DATA_FILE_BASE}-${HOST}.dat;
+if [ ${NUM_BLOCKS} == 1 ]; then
+    mv ${DATA_FILE_BASE}-${HOST}-0.dat ${DATA_FILE_BASE}-${HOST}.dat;
+else
+    cat ${DATA_FILE_BASE}-${HOST}-*.dat > ${DATA_FILE_BASE}-${HOST}.dat;
+fi
 
 # Clean up temporary files
 for ((INDEX=0; INDEX < ${NUM_BLOCKS}; INDEX += 1)); do
