@@ -19,7 +19,7 @@ INITIAL_FLAG=0
 
 # The seeding step needs to know how many records in total will be generated.
 NUM_NODES=`wc -l ../nodes.txt | awk '{print $1}'`
-TOTAL_NUM_BLOCKS=$((${NUM_NODES} * ${NUM_BLOCKS}));
+TOTAL_NUM_BLOCKS=$((${NUM_NODES} * ${NUM_BLOCKS} + 1 ));
 
 # If you want the override the defult statistical values, you do it here.  For
 # example, you could insert -m 35 -p .6 \ bewtween lines
