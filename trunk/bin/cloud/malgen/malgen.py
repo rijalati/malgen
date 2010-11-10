@@ -196,6 +196,12 @@ class RecordPrepare(RecordGenerator):
 
     INITIALIZATIONFILE = file(outdir + '/INITIAL.txt','rb')
     if (os.path.exists(INITIALIZATIONFILE.name)):
+      comment_line_1           = cp.load(INITIALIZATIONFILE)
+      comment_line_2           = cp.load(INITIALIZATIONFILE)
+      comment_line_3           = cp.load(INITIALIZATIONFILE)
+      comment_line_4           = cp.load(INITIALIZATIONFILE)
+      comment_line_5           = cp.load(INITIALIZATIONFILE)
+      comment_line_6           = cp.load(INITIALIZATIONFILE)
       self.nrec_unseeded_blocks= cp.load(INITIALIZATIONFILE)
       self.power               = cp.load(INITIALIZATIONFILE)
       self.scale               = cp.load(INITIALIZATIONFILE)
@@ -279,6 +285,12 @@ class CompromisedRecordPrepare(RecordGenerator):
     # runs.
     outdir = os.path.dirname(self.out.name)
     INITIALIZATIONFILE = file(outdir + '/INITIAL.txt','wb')
+    cp.dump("Comments about the data run -----/",INITIALIZATIONFILE)
+    cp.dump("Total # Blocks: " + str(nblocks),INITIALIZATIONFILE)
+    cp.dump("Block Size: " + str(nrec_unseeded_blocks),INITIALIZATIONFILE)
+    cp.dump("Initial Block Size: " + str(nrecords),INITIALIZATIONFILE)
+    cp.dump("Strict: " + str(STRICT),INITIALIZATIONFILE)
+    cp.dump("-----/ End comments",INITIALIZATIONFILE)
     cp.dump(self.nrec_unseeded_blocks,INITIALIZATIONFILE)
     cp.dump(self.power,INITIALIZATIONFILE)
     cp.dump(self.scale,INITIALIZATIONFILE)
