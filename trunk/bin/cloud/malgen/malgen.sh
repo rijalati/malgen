@@ -45,12 +45,11 @@ if [ ${NUM_BLOCKS} == 1 ]; then
     mv ${DATA_FILE_BASE}-${HOST}-0.dat ${DATA_FILE_BASE}-${HOST}.dat;
 else
     cat ${DATA_FILE_BASE}-${HOST}-*.dat > ${DATA_FILE_BASE}-${HOST}.dat;
+    # Clean up temporary files
+    for ((INDEX=0; INDEX < ${NUM_BLOCKS}; INDEX += 1)); do
+        rm ${DATA_FILE_BASE}-${HOST}-${INDEX}.dat;
+    done;
 fi
-
-# Clean up temporary files
-for ((INDEX=0; INDEX < ${NUM_BLOCKS}; INDEX += 1)); do
-    rm ${DATA_FILE_BASE}-${HOST}-${INDEX}.dat;
-done;
 
 exit 0
 
